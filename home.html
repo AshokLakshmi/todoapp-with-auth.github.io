@@ -13,12 +13,13 @@
     <div class="container">
         <div class="header">
             <div class="user-info">
+                <span>User:</span>
                 <span id="useremail"></span>
                 <button id="logout" onclick="logoutButton()">logout</button>
                 <!----<span id="userid"></span>-->
             </div>
             <div class="search-box">
-                <input type="search" />
+                <input type="search" placeholder="Search Task" />
             </div>
         </div>
         <div class="input-box">
@@ -46,7 +47,16 @@
     <script src="js/firebase.js"></script>
     <script src="js/home.js"></script>
 
+    <script>
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user) {
+                location.replace("index.html");
+            } else {
+                document.getElementById('useremail').innerHTML = user.email;
+            }
+        });
 
+    </script>
 </body>
 
 </html>

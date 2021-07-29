@@ -4,11 +4,14 @@
   box-sizing: border-box;
 }
 .container {
+  background: url(../images/body.jpg);
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .container .header {
-  background-color: blueviolet;
+  background-color: rgba(137, 43, 226, 0.116);
   height: 60px;
   width: 100%;
   display: flex;
@@ -23,8 +26,9 @@
   gap: 20px;
 }
 .container .header .user-info button {
-  width: 100px;
-  padding: 8px;
+  width: 80px;
+  text-transform: capitalize;
+  padding: 6px;
   border: none;
   outline: none;
   border-radius: 20px;
@@ -36,18 +40,23 @@
 }
 .container .header .search-box {
   margin-right: 100px;
-  height: 40px;
+  height: 30px;
   width: 300px;
 }
 .container .header .search-box input {
   width: 100%;
   height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
 }
 .input-box {
-  max-width: 400px;
-  height: 240px;
-  background-color: aqua;
-  margin: 20px auto;
+  max-width: 380px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 157, 0.158);
+  margin: 10px auto;
   padding: 10px;
   font-size: 1.2rem;
   display: flex;
@@ -57,28 +66,34 @@
   gap: 10px;
 }
 .input-box input {
-  width: 100%;
-  height: 40px;
+  width: 90%;
+
+  height: 30px;
+  border-radius: 10px;
   padding: 10px;
-  margin-top: 10px;
+  margin: 6px 20px;
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(77, 74, 74, 0.315);
 }
 .input-box button {
-  width: 140px;
+  width: 120px;
   border-radius: 30px;
   border: none;
   outline: none;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
-  margin: 10px 100px;
+  margin: 8px 100px;
+  cursor: pointer;
+}
+.input-box button:hover {
+  background: rgba(120, 123, 133, 0.199);
 }
 .display-data {
-  width: 90%;
+  width: 100%;
 
   margin: auto;
-  background-color: #2e0ab3;
+  background-color: #2f0ab338;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;

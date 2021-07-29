@@ -1,14 +1,4 @@
-
-  firebase.auth().onAuthStateChanged(function (user) {
-            if (!user) {
-                location.replace("index.html");
-            } else {
-                document.getElementById('useremail').innerHTML = user.email;
-               
-            }
-        });
-        
-
+//logout
         function logoutButton() {
             firebase.auth().signOut()
                 .then(function () {
@@ -18,16 +8,17 @@
                 });
         }
        
+//logout end
 
-const submitButton=document.getElementById('taskform').addEventListener("submit",function(e){
+document.getElementById('taskform').addEventListener("submit",function(e){
      e.preventDefault();
      let taskInput= document.getElementById('task').value;
     let categoryInput= document.getElementById('category').value;
     let dateinput=document.getElementById('date').value;
-
+     var userID=firebase.auth().currentUser.uid;
     var root=firebase.database().ref().child("users");
-    var userID=firebase.auth().currentUser.uid;
     var userRef=root.child(userID);
+   // console.log(userID);
     var taskData={
         task:taskInput,
          category:categoryInput,
@@ -43,7 +34,7 @@ const submitButton=document.getElementById('taskform').addEventListener("submit"
     })
    
    
-   //writeUserData(taskInput,categoryInput,dateinput)
+  
  })
  
 
@@ -52,17 +43,7 @@ const submitButton=document.getElementById('taskform').addEventListener("submit"
 
   
 
-//  function writeUserData(taskInput,categoryInput,dateinput) {
-//       var user=firebase.auth().currentUser;
-     
-//   firebase.database().ref('users/' + user.uid+"/").set({
-//     task:taskInput,
-//     category: categoryInput,
-//     date:dateinput
-//   });
-// }
- 
-//fetch and display data
+
 const taskData=document.querySelector('.display-data');
  
 function showitems(task,category,date) {
@@ -77,3 +58,32 @@ function showitems(task,category,date) {
     taskData.insertAdjacentHTML('afterbegin',showUserTaskData);
     
 }
+
+
+var database=firebase.database();
+
+function getData(user) {
+    
+     //console.log("user"+firebase.auth().currentUser.uid);
+     var user_ref=database.ref('users/'+user.uid)
+     user_ref.on('value',function(snapshot){
+         var data=snapshot.val();
+         var task=data.task;
+         var category=data.category;
+         var date=data.date;
+         showitems(task,category,date);
+        //const uid = user.uid;
+    //console.log(uid);
+         
+     })
+    
+  
+   
+}
+firebase.auth().onAuthStateChanged(function (user) {
+            
+                getData(user);
+        
+           
+        });
+

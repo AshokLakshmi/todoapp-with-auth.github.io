@@ -15,7 +15,10 @@ const database = firebase.database();
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
+        alert('user is signed successful');
         location.replace("home.html");
+    }else{
+       
     }
 });
 
@@ -42,19 +45,16 @@ function loginFunction() {
 function registerFunction() {
     const registerEmail = document.getElementById("registeremail").value;
     const registerPassword = document.getElementById("registerpassword").value;
-    const registerconfimepassword = document.getElementById("registerconfimepassword").value;
+    
   
     auth.createUserWithEmailAndPassword(registerEmail, registerPassword)
         .then(function () {
-
+           alert("Registration successful");
            
         })
         .catch(function (error) {
             document.getElementById("regsiterError").innerHTML = error.message;
         });
-        registerEmail="";
-        registerPassword="";
-        registerconfimepassword="";
        
 
 

@@ -12,7 +12,7 @@
         function logoutButton() {
             firebase.auth().signOut()
                 .then(function () {
-                    // Sign-out successful.
+                   alert("logout successful");
                 }).catch(function (error) {
                     // An error happened.
                 });
@@ -21,10 +21,9 @@
 
 const submitButton=document.getElementById('taskform').addEventListener("submit",function(e){
      e.preventDefault();
-     const taskInput= document.getElementById('task').value;
-    const categoryInput= document.getElementById('category').value;
-    const dateinput=document.getElementById('date').value;
-
+     let taskInput= document.getElementById('task').value;
+    let categoryInput= document.getElementById('category').value;
+    let dateinput=document.getElementById('date').value;
 
     var root=firebase.database().ref().child("users");
     var userID=firebase.auth().currentUser.uid;
@@ -36,14 +35,17 @@ const submitButton=document.getElementById('taskform').addEventListener("submit"
     }
     userRef.set(taskData,function(error){
         if(error){
-
+         
         }else{
-           
+        alert("task added");
+        
         }
     })
    
+   
    //writeUserData(taskInput,categoryInput,dateinput)
  })
+ 
 
 
 
@@ -75,13 +77,3 @@ function showitems(task,category,date) {
     taskData.insertAdjacentHTML('afterbegin',showUserTaskData);
     
 }
-function FetchAllData() {
-    var userID=firebase.auth().currentUser.uid;
-    firebase.database().ref('users/'+userID).once('value').then(function(snapshot){
-       console.log("aaaaaa");
-    });
- 
-}
-FetchAllData();
-
-//window.onchange(FetchAllData);

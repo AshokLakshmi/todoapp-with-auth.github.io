@@ -45,9 +45,10 @@ function loginFunction() {
 function registerFunction() {
     const registerEmail = document.getElementById("registeremail").value;
     const registerPassword = document.getElementById("registerpassword").value;
+    const registerconfimepassword = document.getElementById("registerconfimepassword").value;
     
-  
-    auth.createUserWithEmailAndPassword(registerEmail, registerPassword)
+  if(registerPassword===registerconfimepassword){
+       auth.createUserWithEmailAndPassword(registerEmail, registerPassword)
         .then(function () {
            alert("Registration successful");
            
@@ -55,6 +56,12 @@ function registerFunction() {
         .catch(function (error) {
             document.getElementById("regsiterError").innerHTML = error.message;
         });
+
+  }
+  else{
+      alert("password Does not match");
+  }
+   
        
 
 
@@ -73,19 +80,22 @@ function registerFunction() {
 
 //forget password
 function forgetPassword() {
-    const loginEmail = document.getElementById("loginemail").value;
+    var forgetEmail = document.getElementById("forget-email").value;
     auth
-        .sendPasswordResetEmail(loginEmail)
+        .sendPasswordResetEmail(forgetEmail)
         .then(() => {
             alert(
                 "Password Reset Email Send on Email Address : " +
-                loginEmail +
+                forgetEmail +
                 " Please check Your Email"
             );
+             forgetEmail.value="";
+            
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage);
         });
+        forgetEmail.value="";
 }

@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 .main-container {
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+      rgba(82, 80, 194, 0.4),
+      rgba(235, 47, 252, 0.4)
+    ),
     url(../images/bg2.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -14,20 +17,20 @@
   position: absolute;
 }
 .form {
-  width: 380px;
-  height: 480px;
+  width: 360px;
+  height: 440px;
   overflow: hidden;
-  margin: 6% auto;
+  margin: 2% auto;
   position: relative;
   padding: 10px;
-  background-color: aliceblue;
+  background-color: rgba(189, 127, 180, 0.089);
   box-shadow: 0 8px 32px 0 rgba(69, 69, 73, 0.37);
 
   border-radius: 10px;
 }
 .lr-button {
   width: 220px;
-  background-color: rgba(148, 147, 146, 0.281);
+  background-color: rgba(123, 102, 180, 0.315);
   margin: 30px auto;
   position: relative;
   border-radius: 20px;
@@ -62,9 +65,26 @@
   padding: 10px;
   margin: 5px 0;
   border: none;
+  border-radius: 10px;
   border-bottom: 1px solid #999;
   outline: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.219);
+}
+#open-forget-tab {
+  position: absolute;
+  cursor: pointer;
+  background-color: rgb(97, 84, 216);
+  padding: 10px;
+  left: 80px;
+  color: white;
+  bottom: -40px;
+  border-radius: 20px;
+  transition: 0.6s;
+}
+#open-forget-tab:hover {
+  background-color: rgba(150, 94, 133, 0.205);
+  transition: 0.6s;
+  color: rgba(12, 12, 12, 0.699);
 }
 .login-btn {
   width: 80%;
@@ -76,6 +96,13 @@
   border: none;
   outline: none;
   border-radius: 30px;
+  transition: 0.5s;
+  font-size: 1rem;
+}
+.login-btn:hover {
+  color: white;
+  transition: 0.6s;
+  background: linear-gradient(to right, #af3dbe, #6240db);
 }
 #login {
   left: 50px;
@@ -86,4 +113,60 @@
 .error {
   color: red;
   font-size: 0.8rem;
+}
+.forget-password {
+  width: 300px;
+  display: none;
+  background: linear-gradient(rgba(82, 80, 194, 0.966), rgb(235, 47, 252));
+  height: 300px;
+  margin-left: 30px;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1;
+  top: -70px;
+  position: relative;
+}
+.forget-password input {
+  width: 80%;
+  margin-left: 30px;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.forget-password a {
+  position: absolute;
+  left: 48px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  background: linear-gradient(to right, #da9de2, #8e7eca);
+  top: 60px;
+  transition: 0.6s;
+}
+.forget-password a:hover {
+  background-color: aliceblue;
+  color: black;
+  border: none;
+  transition: 0.6s;
+}
+#closetab {
+  position: absolute;
+  top: 60px;
+  background: linear-gradient(to right, #d995e2, #b6abdd);
+  width: 60px;
+  border-radius: 20px;
+  cursor: pointer;
+  right: 40px;
+  padding: 8px;
+  border: none;
+  color: #6240db;
+  transition: 0.6s;
+}
+#closetab:hover {
+  color: white;
+  background-color: #3417d842;
+  transition: 0.6s;
 }

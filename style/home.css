@@ -4,15 +4,16 @@
   box-sizing: border-box;
 }
 .container {
-  background: url(../images/body.jpg);
-  width: 100%;
+  background: linear-gradient(rgba(82, 80, 194, 0.4), rgba(235, 47, 252, 0.4)),
+    url(../images/body.jpg);
+  width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .container .header {
-  background-color: rgba(137, 43, 226, 0.116);
-  height: 60px;
+  background-color: rgba(43, 46, 226, 0.082);
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -106,4 +107,16 @@
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
+}
+.delete-btn {
+  border-radius: 10px;
+  padding: 4px;
+  width: 80px;
+  border: none;
+  background-color: #2e0ab3;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.delete-btn:hover {
+  background-color: #2f0ab32d;
 }

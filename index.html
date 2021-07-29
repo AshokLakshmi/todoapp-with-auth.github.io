@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css" />
-    <title>Document</title>
+    <title>Todo APP</title>
 </head>
 
 <body>
@@ -20,21 +20,27 @@
             </div>
             <form id="login" class="form-group" onsubmit="loginFunction()">
                 <span id="loginError" class="error"></span>
-                <input id="loginemail" type="text" class="input" placeholder="Email" required />
-                <input id="loginpassword" type="password" class="input" placeholder="Password" required />
+                <input id="loginemail" type="text" class="input" placeholder="Email" required autocomplete=false />
+                <input id="loginpassword" type="password" class="input" placeholder="Password" required
+                    autocomplete=false />
                 <button type="submit" class="login-btn">LogIn</button>
-                <a href="#" onclick="forgetPassword()">Forget Password</a>
+                <a onclick="forgetTab()" id="open-forget-tab">Forget Password</a>
             </form>
             <form id="signup" class="form-group" onsubmit="registerFunction()">
                 <span id="regsiterError" class="error"></span>
-                <input id="registeremail" type="text" class="input" placeholder="Email" required />
-                <input id="registerpassword" type="password" class="input" placeholder="Password" required
-                    onkeyup='check()' />
-                <input id="registerconfimepassword" type="password" class="input" placeholder="Confirm Password"
-                    required onkeyup='check();' />
+                <input autocomplete=false id="registeremail" type="text" class="input" placeholder="Email" required />
+                <input autocomplete=false id="registerpassword" type="password" class="input" placeholder="Password"
+                    required onkeyup='check()' />
+                <input autocomplete=false id="registerconfimepassword" type="password" class="input"
+                    placeholder="Confirm Password" required onkeyup='check();' />
                 <span id="message"></span>
                 <button type="submit" class="login-btn">Register</button>
             </form>
+            <div class="forget-password" id="forget-tab">
+                <input autocomplete=false class="forget" id="forget-email" placeholder="Enter Your Email" />
+                <a href="#" onclick="forgetPassword()">Forget Password</a>
+                <button href="#" id="closetab" onclick="closeForget()">Close</button>
+            </div>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -43,18 +49,7 @@
     <script src="js/firebase.js"></script>
     <script src="js/style.js"></script>
     <script src="js/loginRegister.js"></script>
-    <script>
-        var check = function () {
-            if (document.getElementById('registerpassword').value ==
-                document.getElementById('registerconfimepassword').value) {
-                document.getElementById('message').style.color = 'green';
-                document.getElementById('message').innerHTML = 'matching';
-            } else {
-                document.getElementById('message').style.color = 'red';
-                document.getElementById('message').innerHTML = 'not matching';
-            }
-        }
-    </script>
+
 </body>
 
 </html>

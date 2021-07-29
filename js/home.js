@@ -53,6 +53,7 @@ function showitems(task,category,date) {
                 <h3>${category}</h3>
                 <p>${task}</p>
                 <span>${date}</span>
+                <button class="delete-btn" id="delete-btn">Delete</button>
             </div>
     `
     taskData.insertAdjacentHTML('afterbegin',showUserTaskData);
@@ -83,7 +84,9 @@ function getData(user) {
 firebase.auth().onAuthStateChanged(function (user) {
             
                 getData(user);
-        
+         
            
         });
+
+
 

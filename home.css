@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.container .header {
+  background-color: blueviolet;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .header .user-info {
+  margin-left: 40px;
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+  gap: 20px;
+}
+.container .header .user-info button {
+  width: 100px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.container .header .user-info button:hover {
+  background: linear-gradient(to right, #2e0ab3, #a015b3);
+  color: white;
+}
+.container .header .search-box {
+  margin-right: 100px;
+  height: 40px;
+  width: 300px;
+}
+.container .header .search-box input {
+  width: 100%;
+  height: 100%;
+}
+.input-box {
+  max-width: 400px;
+  height: 240px;
+  background-color: aqua;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.input-box input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(77, 74, 74, 0.315);
+}
+.input-box button {
+  width: 140px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 100px;
+}
+.display-data {
+  width: 90%;
+
+  margin: auto;
+  background-color: #2e0ab3;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.display-data .data-item {
+  width: 300px;
+  min-height: 140px;
+  background-color: aliceblue;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}

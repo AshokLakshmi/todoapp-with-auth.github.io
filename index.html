@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div class="form">
+            <div class="lr-button">
+                <div id="btn-color"></div>
+                <button type="button" class="toggle-btn" onclick="loginmove()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form id="login" class="form-group" onsubmit="loginFunction()">
+                <span id="loginError" class="error"></span>
+                <input id="loginemail" type="text" class="input" placeholder="Email" required />
+                <input id="loginpassword" type="password" class="input" placeholder="Password" required />
+                <button type="submit" class="login-btn">LogIn</button>
+                <a href="#" onclick="forgetPassword()">Forget Password</a>
+            </form>
+            <form id="signup" class="form-group" onsubmit="registerFunction()">
+                <span id="regsiterError" class="error"></span>
+                <input id="registeremail" type="text" class="input" placeholder="Email" required />
+                <input id="registerpassword" type="password" class="input" placeholder="Password" required
+                    onkeyup='check()' />
+                <input id="registerconfimepassword" type="password" class="input" placeholder="Confirm Password"
+                    required onkeyup='check();' />
+                <span id="message"></span>
+                <button type="submit" class="login-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+    <script src="firebase.js"></script>
+    <script src="style.js"></script>
+    <script src="loginRegister.js"></script>
+    <script>
+        var check = function () {
+            if (document.getElementById('registerpassword').value ==
+                document.getElementById('registerconfimepassword').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'matching';
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'not matching';
+            }
+        }
+    </script>
+</body>
+
+</html>

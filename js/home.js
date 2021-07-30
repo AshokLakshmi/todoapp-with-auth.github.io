@@ -1,92 +1,51 @@
-//logout
-        function logoutButton() {
-            firebase.auth().signOut()
-                .then(function () {
-                   alert("logout successful");
-                }).catch(function (error) {
-                    // An error happened.
-                });
-        }
-       
-//logout end
 
-document.getElementById('taskform').addEventListener("submit",function(e){
-     e.preventDefault();
-     let taskInput= document.getElementById('task').value;
-    let categoryInput= document.getElementById('category').value;
-    let dateinput=document.getElementById('date').value;
-     var userID=firebase.auth().currentUser.uid;
-    var root=firebase.database().ref().child("users");
-    var userRef=root.child(userID);
-   // console.log(userID);
-    var taskData={
-        task:taskInput,
-         category:categoryInput,
-         date:dateinput,
-    }
-    userRef.set(taskData,function(error){
-        if(error){
-         
-        }else{
-        alert("task added");
-        
-        }
-    })
-   
-   
+const taskData = document.querySelector(".display-data");
+
+var database = firebase.database();
+//const displayDataItems=document.getElementsByClassName('display-data');
+//window.setInterval(displayDataItems,1000);
+firebase.auth().onAuthStateChanged(function (user) {
   
- })
- 
+getData(user);
+  
+});
 
-
-
+function showData(key,task,category,date,key) {
+  
+   const showUserTaskData = `
+     <div class="data-item" child-key="${key}">
+                <div class="items">
+                 <input value="${category}" readOnly />
+                 <input value="${task}" readOnly />
+                  <input value="${date}" readOnly /></div>
+                  <div class="edit-delete">
+                 <button class="delete-btn" id="delete-btn key="${key}">Delete</button>
+                 <button class="delete-btn" id="edit-btn" key="${key}">Edit</button>
+                 </div>
+             </div>
+     `;
+      taskData.insertAdjacentHTML("afterbegin", showUserTaskData);
 
   
-
-
-const taskData=document.querySelector('.display-data');
- 
-function showitems(task,category,date) {
-
-    const showUserTaskData=`
-    <div class="data-item">
-                <h3>${category}</h3>
-                <p>${task}</p>
-                <span>${date}</span>
-                <button class="delete-btn" id="delete-btn">Delete</button>
-            </div>
-    `
-    taskData.insertAdjacentHTML('afterbegin',showUserTaskData);
-    
 }
 
-
-var database=firebase.database();
+   
 
 function getData(user) {
+  var user_ref = database.ref("users/" + user.uid);
+  user_ref.once("value", function (snapshot) {
     
-     //console.log("user"+firebase.auth().currentUser.uid);
-     var user_ref=database.ref('users/'+user.uid)
-     user_ref.on('value',function(snapshot){
-         var data=snapshot.val();
-         var task=data.task;
-         var category=data.category;
-         var date=data.date;
-         showitems(task,category,date);
-        //const uid = user.uid;
-    //console.log(uid);
-         
-     })
-    
-  
-   
+    snapshot.forEach(function (childSnapshot) {
+      var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      var task = childData.task;
+      var category = childData.category;
+      var date = childData.date;
+      showData(key,task,category,date,key);
+     
+    });
+  });
 }
-firebase.auth().onAuthStateChanged(function (user) {
-            
-                getData(user);
-         
-           
-        });
 
-
+   
 

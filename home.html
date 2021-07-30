@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@700&family=Poppins:wght@200;300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style/home.css" />
 </head>
 
@@ -18,15 +23,21 @@
                 <button id="logout" onclick="logoutButton()">logout</button>
                 <!----<span id="userid"></span>-->
             </div>
-            <div class="search-box">
+            <!----  <div class="search-box">
                 <input type="search" placeholder="Search Task" />
-            </div>
+            </div>-->
         </div>
         <div class="input-box">
             <form id="taskform">
-                <input type="text" placeholder="write here" id="task" required />
-                <input type="text" placeholder="category" id="category" required />
-                <input type="date" id="date" required />
+                <input type="text" placeholder="Enter Your Todo" id="task" required />
+
+                <select placeholder="category" id="category" required>
+                    <option value="Work">Work</option>
+                    <option value="Education">Education</option>
+                    <option value="Home">Home</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="date" id="date" required min="2021-01-01" max="2022-12-31" />
                 <button type="submit" id="submit-btn">Add</button>
             </form>
         </div>
@@ -46,6 +57,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/addDataToDatabase.js"></script>
 
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
@@ -55,6 +68,8 @@
                 document.getElementById('useremail').innerHTML = user.email;
             }
         });
+
+
 
     </script>
 </body>

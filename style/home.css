@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 .container {
-  background: linear-gradient(rgba(82, 80, 194, 0.4), rgba(235, 47, 252, 0.4)),
+  background: linear-gradient(
+      rgba(82, 80, 194, 0.466),
+      rgba(235, 47, 252, 0.479)
+    ),
     url(../images/body.jpg);
   width: 100vw;
-  height: 100vh;
+
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -54,9 +59,10 @@
 }
 .input-box {
   max-width: 380px;
-  height: 200px;
+  height: 240px;
+
   border-radius: 10px;
-  background-color: rgba(255, 0, 157, 0.158);
+  background-color: rgba(132, 0, 255, 0.096);
   margin: 10px auto;
   padding: 10px;
   font-size: 1.2rem;
@@ -66,16 +72,21 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.input-box input {
+.input-box input,
+select {
   width: 90%;
-
-  height: 30px;
+  background-color: rgba(255, 255, 255, 0.048);
+  height: 40px;
+  color: white;
   border-radius: 10px;
   padding: 10px;
   margin: 6px 20px;
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(77, 74, 74, 0.315);
+}
+.input-box select {
+  background-color: #2f0ab350;
 }
 .input-box button {
   width: 120px;
@@ -91,29 +102,77 @@
   background: rgba(120, 123, 133, 0.199);
 }
 .display-data {
-  width: 100%;
+  width: 90%;
 
   margin: auto;
   background-color: #2f0ab338;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
 }
 .display-data .data-item {
-  width: 300px;
+  width: 260px;
   min-height: 140px;
-  background-color: aliceblue;
-  margin: 10px;
-  padding: 10px;
+  background-color: rgba(240, 248, 255, 0.418);
+  display: flex;
+  flex-direction: column;
+  position: relative;
   border-radius: 10px;
+}
+.display-data .data-item .items {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.display-data .data-item .items input {
+  border: none;
+
+  background-color: transparent;
+  outline: none;
+  text-transform: capitalize;
+  color: rgb(81, 16, 143);
+}
+.display-data .data-item .items input:focus {
+  background-color: transparent;
+}
+.display-data .data-item .items input:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  border-bottom: 1px solid;
+  font-family: "Cormorant Unicase", serif;
+}
+
+.display-data .data-item .items input:nth-child(2) {
+  margin-left: 2px;
+  margin-top: 16px;
+  color: rgb(255, 255, 255);
+}
+
+.display-data .data-item .items input:nth-child(3) {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  opacity: 0.8;
+}
+
+.display-data .data-item .edit-delete {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
 }
 .delete-btn {
   border-radius: 10px;
   padding: 4px;
   width: 80px;
   border: none;
-  background-color: #2e0ab3;
+  background-color: #2f0ab37e;
   cursor: pointer;
   margin-left: 20px;
 }

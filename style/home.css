@@ -21,6 +21,7 @@
   height: 50px;
   width: 100%;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 }
@@ -30,6 +31,7 @@
   font-size: 1rem;
   align-items: center;
   gap: 20px;
+  color: wheat;
 }
 .container .header .user-info button {
   width: 80px;

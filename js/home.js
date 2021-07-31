@@ -32,16 +32,15 @@ function showData(key,task,category,date,key) {
    
 
 function getData(user) {
-  var user_ref = database.ref("users/" + user.uid);
- user_ref.on("child_added", (snapshot) => {
+  var user_ref = firebase.database().ref("users/" + user.uid);
+  user_ref.on("child_added", (snapshot) => {
     const newTodos = snapshot.val();
     var key = snapshot.key;
     var task = newTodos.task;
     var category = newTodos.category;
     var date = newTodos.date;
-      showData(key,task,category,date,key);
-     
-    });
+
+    showData(key, task, category, date, key);
   });
 }
 

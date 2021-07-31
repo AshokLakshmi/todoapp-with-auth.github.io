@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   getData(user);
 });
 
-function showData(key, task, category, date, key) {
+function showData(task, category, date, key) {
   const showUserTaskData = `
     
         <tr>
@@ -28,6 +28,6 @@ function getData(user) {
     var category = newTodos.category;
     var date = newTodos.date;
 
-    showData(key, task, category, date, key);
+    showData(task, category, date, key);
   });
 }

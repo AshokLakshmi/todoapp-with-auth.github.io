@@ -21,6 +21,28 @@ document.getElementById("taskform").addEventListener("submit", function (e) {
     }
   });
 });
+
+
 function reset(){
 document.getElementById('taskform').reset();
+}
+
+function writeNewPost(taskInput, categoryInput, dateinput) {
+ 
+
+   var updateData = {
+    task: taskInput,
+    category: categoryInput,
+    date: dateinput,
+  };
+
+  // Get a key for a new Post.
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
 }

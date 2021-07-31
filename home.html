@@ -23,9 +23,9 @@
                 <button id="logout" onclick="logoutButton()">logout</button>
                 <!----<span id="userid"></span>-->
             </div>
-            <!----  <div class="search-box">
+            <!-- <div class="search-box" id="search">
                 <input type="search" placeholder="Search Task" />
-            </div>-->
+            </div> -->
         </div>
         <div class="input-box">
             <form id="taskform">
@@ -41,10 +41,23 @@
                 <button type="submit" id="submit-btn">Add</button>
             </form>
         </div>
-        <div class="display-data">
-
-
+        <div class="firebase-data">
+            <!-- <button id="All" value="All"> All</button>
+            <button id="Work" value="Work">Work</button>
+            <button id="Eduaction" value="Education">Education</button>
+            <button id="Home" value="Home">Home</button>
+            <button id="Other" value="Other">Other</button> -->
+            <table class="display-data">
+                <tr>
+                    <th>Task</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                </tr>
+            </table>
         </div>
+
+
+
     </div>
 
 
@@ -56,9 +69,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
     <script src="js/firebase.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/getSaveData.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/addDataToDatabase.js"></script>
+    <script src="js/editDelete.js"></script>
+
 
     <script>
         firebase.auth().onAuthStateChanged(function (user) {

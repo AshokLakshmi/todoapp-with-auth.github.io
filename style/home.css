@@ -103,7 +103,7 @@ select {
 .input-box button:hover {
   background: rgba(120, 123, 133, 0.199);
 }
-.display-data {
+/* .display-data {
   width: 90%;
 
   margin: auto;
@@ -169,7 +169,8 @@ select {
   justify-content: space-between;
   width: 90%;
 }
-.delete-btn {
+.delete-btn,
+.edit-btn {
   border-radius: 10px;
   padding: 4px;
   width: 80px;
@@ -178,6 +179,31 @@ select {
   cursor: pointer;
   margin-left: 20px;
 }
-.delete-btn:hover {
+
+.delete-btn:hover,
+.edit-btn:hover {
   background-color: #2f0ab32d;
+  color: white;
+} */
+.firebase-data {
+  width: 90%;
+  margin: auto;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #bdbbc246;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #a75b5b;
+  color: white;
 }

@@ -33,14 +33,12 @@ function showData(key,task,category,date,key) {
 
 function getData(user) {
   var user_ref = database.ref("users/" + user.uid);
-  user_ref.once("value", function (snapshot) {
-    
-    snapshot.forEach(function (childSnapshot) {
-      var key = childSnapshot.key;
-      var childData = childSnapshot.val();
-      var task = childData.task;
-      var category = childData.category;
-      var date = childData.date;
+ user_ref.on("child_added", (snapshot) => {
+    const newTodos = snapshot.val();
+    var key = snapshot.key;
+    var task = newTodos.task;
+    var category = newTodos.category;
+    var date = newTodos.date;
       showData(key,task,category,date,key);
      
     });

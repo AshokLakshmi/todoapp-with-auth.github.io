@@ -7,10 +7,10 @@
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(
-      rgba(82, 80, 194, 0.4),
-      rgba(235, 47, 252, 0.4)
+      rgba(207, 207, 224, 0.445),
+      rgba(142, 140, 143, 0.411)
     ),
-    url(../images/bg1.jpg);
+    url(../images/bg3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,14 +23,13 @@
   margin: 2% auto;
   position: relative;
   padding: 10px;
-  background-color: rgba(189, 127, 180, 0.089);
+  background-color: rgba(148, 143, 147, 0.055);
   box-shadow: 0 8px 32px 0 rgba(69, 69, 73, 0.37);
-
   border-radius: 10px;
 }
 .lr-button {
   width: 220px;
-  background-color: rgba(123, 102, 180, 0.315);
+  background-color: rgba(128, 127, 133, 0.315);
   margin: 30px auto;
   position: relative;
   border-radius: 20px;
@@ -49,10 +48,11 @@
   left: 0;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #6240db, #af3dbe);
+  background: linear-gradient(to right, #c5bfdd, #a188a3);
   border-radius: 20px;
   transition: 0.6s;
 }
+
 .form-group {
   position: absolute;
   top: 120px;
@@ -66,14 +66,14 @@
   margin: 5px 0;
   border: none;
   border-radius: 10px;
-  border-bottom: 1px solid #999;
+
   outline: none;
-  background: rgba(255, 255, 255, 0.219);
+  background: rgba(88, 87, 87, 0.308);
 }
 #open-forget-tab {
   position: absolute;
   cursor: pointer;
-  background-color: rgb(97, 84, 216);
+  background: linear-gradient(to right, #c5bfdd, #a188a3);
   padding: 10px;
   left: 80px;
   color: white;
@@ -92,7 +92,7 @@
   cursor: pointer;
   display: block;
   margin: 10px auto;
-  background: linear-gradient(to right, #6240db, #af3dbe);
+  background: linear-gradient(to right, #c5bfdd, #a188a3);
   border: none;
   outline: none;
   border-radius: 30px;
@@ -102,7 +102,7 @@
 .login-btn:hover {
   color: white;
   transition: 0.6s;
-  background: linear-gradient(to right, #af3dbe, #6240db);
+  background: linear-gradient(to right, #726b74, #d8d4e7);
 }
 #login {
   left: 50px;
@@ -117,7 +117,7 @@
 .forget-password {
   width: 300px;
   display: none;
-  background: linear-gradient(rgba(82, 80, 194, 0.966), rgb(235, 47, 252));
+  background-color: #c7c7c6;
   height: 300px;
   margin-left: 30px;
   border-radius: 10px;
@@ -128,6 +128,7 @@
 }
 .forget-password input {
   width: 80%;
+  background: rgba(156, 154, 154, 0.329);
   margin-left: 30px;
   height: 30px;
   padding: 10px;
@@ -142,7 +143,7 @@
   text-decoration: none;
   color: white;
   padding: 8px;
-  background: linear-gradient(to right, #da9de2, #8e7eca);
+  background: linear-gradient(to right, #d1caeb, #867a86);
   top: 60px;
   transition: 0.6s;
 }
@@ -155,7 +156,7 @@
 #closetab {
   position: absolute;
   top: 60px;
-  background: linear-gradient(to right, #d995e2, #b6abdd);
+  background: linear-gradient(to right, #c5bfdd, #a188a3);
   width: 60px;
   border-radius: 20px;
   cursor: pointer;

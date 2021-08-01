@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+
+    <link rel="stylesheet" href="style/materialize.min.css">
+    <link rel="stylesheet" href="style/index.css">
+    <script src="js/materialize.min.js"></script>
+    <style>
+        #delete-btn {
+            cursor: pointer;
+            color: #01579b;
+
+        }
+
+        #delete-btn:hover {
+            color: #dd2c00;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="#01579b light-blue darken-4">
+        <div class="nav-wrapper container">
+            <a href="#!">Todo App</a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li style="margin-right: 10px; margin-top: 10px;">
+                    <h6>Hi</h6>
+                </li>
+                <li style="margin-right: 40px;" id="username"></li>
+                <button id="logout-btn" class="waves-effect waves-light btn #0277bd light-blue darken-3"
+                    onclick="logoutUser()">logout</button>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="input-fields">
+        <div class="todo-inputs">
+            <input type="text" placeholder="Enter Your task" id="input-task" />
+            <!-- <select name="category" id="input-category">
+                <option value="">--Please choose a categroy--</option>
+                <option value="home">Home</option>
+                <option value="office">Office</option>
+                <option value="personal">Personal</option>
+                <option value="other">Other</option>
+
+            </select> -->
+            <div class="input-field col s12">
+                <select name="category" id="input-category">
+                    <option value="" disabled selected>--Please choose a categroy--</option>
+                    <option value="home">Home</option>
+                    <option value="office">Office</option>
+                    <option value="personal">Personal</option>
+                    <option value="other">Other</option>
+                </select>
+
+            </div>
+            <button id="task-add-button" onclick="addTaskToDatabase()"
+                class="waves-effect waves-light btn #0277bd light-blue darken-3">Add</button>
+
+
+
+        </div>
+
+
+        <div class="display-data">
+            <table class="styled-table responsive-table" id="table">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="js/firebaseConfig.js"></script>
+    <script src="js/addDataToDatabase.js"></script>
+    <script src="js/readDataFromDatabase.js"></script>
+    <script src="js/deleteData.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user) {
+                location.href = "index.html";
+            } else {
+                document.getElementById('username').innerHTML = user.email;
+            }
+        });
+
+        function logoutUser() {
+            firebase.auth().signOut().then(() => {
+                alert("User logout SuccessFul");
+            }).catch((error) => {
+                // An error happened.
+                alert(error.message);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

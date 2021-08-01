@@ -1,48 +1,28 @@
-document.getElementById("taskform").addEventListener("submit", function (e) {
-  e.preventDefault();
-  let taskInput = document.getElementById("task").value;
-  let categoryInput = document.getElementById("category").value;
-  let dateinput = document.getElementById("date").value;
-  var userID = firebase.auth().currentUser.uid;
-  var root = firebase.database().ref().child("users");
-  var userRef = root.child(userID);
-  // console.log(userID);
-  var taskData = {
-    task: taskInput,
-    category: categoryInput,
-    date: dateinput,
-  };
-  userRef.push(taskData, function (error) {
-    reset();
-    if (error) {
-    } else {
-      alert("task added");
-   
-    }
-  });
-});
+const addButton = document.getElementById("task-add-button");
 
-
-function reset(){
-document.getElementById('taskform').reset();
+function addTaskToDatabase() {
+  let taskInput = document.getElementById("input-task").value;
+  let taskcategory = document.getElementById("input-category").value;
+  var user = firebase.auth().currentUser;
+  
+  if (taskInput != "" && taskcategory != "") {
+      var todoData={
+           task: taskInput,
+          category: taskcategory,
+      }
+    firebase.database().ref("users/" + user.uid).push(todoData,function(error){
+       resetInputFields();
+        if(error){
+           alert(error.message);
+        }else{
+            alert("Data Added");
+        }
+    });
+  }
 }
+//Reset Input fields after click
+function resetInputFields() {
+ document.getElementById("input-task").value="";
+  document.getElementById("input-category").value=null;
 
-function writeNewPost(taskInput, categoryInput, dateinput) {
- 
-
-   var updateData = {
-    task: taskInput,
-    category: categoryInput,
-    date: dateinput,
-  };
-
-  // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('posts').push().key;
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-  return firebase.database().ref().update(updates);
 }

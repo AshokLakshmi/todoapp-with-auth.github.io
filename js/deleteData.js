@@ -1,10 +1,10 @@
-setTimeout(function () {
+setInterval(function () {
   var deleteBtn = document.querySelectorAll("#delete-btn");
   for (let i = 0; i < deleteBtn.length; i++) {
     deleteBtn[i].addEventListener("click", function () {
       var todoKey = deleteBtn[i].getAttribute("key");
       var userid = deleteBtn[i].getAttribute("userid");
-      console.log(userid + "=" + todoKey);
+      //console.log(userid + "=" + todoKey);
 
       let userRef = firebase
         .database()
@@ -36,4 +36,4 @@ setTimeout(function () {
       // });
     });
   }
-}, 8000);
+}, 4000);

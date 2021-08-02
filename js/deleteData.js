@@ -13,8 +13,8 @@ setInterval(function () {
       userRef
         .remove()
         .then(() => {
-          alert("todo Deleted please reload page");
-          
+         // alert("todo Deleted please reload page");
+          location.reload();
         })
         .catch((error) => {
           var errorCode = error.code;
